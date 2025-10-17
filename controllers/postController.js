@@ -1,4 +1,4 @@
-import posts from "../posts";
+import posts from "../data/posts";
 
 function getPost(req, res) {
     return (
@@ -45,7 +45,8 @@ function deletePost(req, res) {
     const index = posts.findIndex(blog => blog.id === id);
     if (index === -1) return res.status(404).json({ message: "Blog non trovato" });
     posts.splice(index, 1);
-    res.json({ message: `Post con id ${id} eliminato` });
+    res.status(204).send();
+    console.log(posts);
 }
 
 export default {getPost, getSinglePost, createNewPost, modificaPost, deletePost}
