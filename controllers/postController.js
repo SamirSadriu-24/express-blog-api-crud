@@ -1,9 +1,7 @@
 import posts from '../data/posts.js';
 
 function getPost(req, res) {
-    return (
-        res.json(posts)
-    )
+    res.json(posts)
 }
 
 
@@ -16,6 +14,8 @@ function getSinglePost(req, res) {
 }
 
 function createNewPost(req, res) {
+
+    console.log(req.body);
 
     const nuovoPost = {
         id: posts.length + 1,
@@ -49,4 +49,4 @@ function deletePost(req, res) {
     console.log(posts);
 }
 
-export default {getPost, getSinglePost, createNewPost, modificaPost, deletePost}
+export default { getPost, getSinglePost, createNewPost, modificaPost, deletePost }
